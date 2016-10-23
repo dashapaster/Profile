@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsActivity_1">
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:layout_height="wrap_content"
+        style = "@style/toolbar">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PROFILE"
+            android:layout_gravity="center"
+            android:id="@+id/toolbar_title"
+            android:textColor="@color/actionbar_text_color"/>
+    </android.support.v7.widget.Toolbar>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_mail"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:src="@drawable/ic_mail"
+        android:layout_below="@id/toolbar"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_mail"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@+id/img_mail"
+        android:padding="10dp"
+        android:text="e-mail"
+        android:layout_below="@id/toolbar"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_name"
+        android:src="@drawable/ic_name"
+        android:padding="10dp"
+        android:layout_below="@id/img_mail"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_name"
+        android:padding="10dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Name"
+        android:layout_toRightOf="@+id/img_name"
+        android:layout_below="@id/img_mail"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_date"
+        android:textColor="#0000"
+        android:src="@drawable/ic_date"
+        android:padding="10dp"
+        android:layout_below="@id/img_name"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_date"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="dd.mm.yy"
+        android:layout_toRightOf="@+id/img_date"
+        android:layout_below="@id/img_name"
+        android:padding="10dp"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/img_location"
+        android:src="@drawable/ic_loc"
+        android:padding="10dp"
+        android:layout_below="@id/img_date"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tv_location"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Location"
+        android:layout_toRightOf="@+id/img_location"
+        android:layout_below="@id/img_date"
+        android:padding="10dp"
+
+        />
+
+
+    <Button
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_margin="50dp"
+        android:layout_below="@+id/tv_location"
+        android:layout_centerInParent="true"
+        android:background="@drawable/button"
+        android:text="edit"
+        android:onClick="editProfile"
+        />
+</RelativeLayout>
