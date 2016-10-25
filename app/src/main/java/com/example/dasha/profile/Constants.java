@@ -9,9 +9,12 @@ public class Constants {
     public static String EMAIL = "email";
     public static String DATE = "date";
     public static String LOCATION = "location";
-    public static String FILL_FIELDS = "Fill all fields";
     public static String DOWNLOAD = "Downloading data from DB";
     public static String PROFILE_ID = "profile_id";
     public static String EMPTY_STR = "";
     public static int ZERO = 0;
+    public static String NAME_ERROR = "Name can not be empty";
+    public static String EMAIL_ERROR = "e-mail can not be empty";
+    public static String DATE_ERROR = "Date can not be empty";
+    public static String LOCATION_ERROR = "Location can not be empty";
 }
