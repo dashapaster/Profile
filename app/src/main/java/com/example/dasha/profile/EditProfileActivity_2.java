@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -60,26 +61,37 @@ public class EditProfileActivity_2 extends AppCompatActivity {
     }
 
     public void saveProfile(View view){
-        if(etMail.getText().length()!=Constants.ZERO&&etName.getText().length()!=Constants.ZERO&&etDate.getText().length()!=Constants.ZERO&&etLocation.length()!=Constants.ZERO){
-          email = etMail.getText().toString();
-          name = etName.getText().toString();
-          date = etDate.getText().toString();
-          location = etLocation.getText().toString();
-          profile.update(email, name, date, location);
+        if(etMail.getText().toString().trim().length()==Constants.ZERO){
+            etMail.setError(Constants.EMAIL_ERROR);
+            return;
+        }else if(etName.getText().toString().trim().length()==Constants.ZERO){
+            etName.setError(Constants.NAME_ERROR);
+            return;
+        }else if(etDate.getText().toString().trim().length()==Constants.ZERO){
+            etDate.setError(Constants.DATE_ERROR);
+            return;
+        }else if(etLocation.toString().trim().length()==Constants.ZERO) {
+            etLocation.setError(Constants.LOCATION_ERROR);
+            return;
+        }
+        else{
+            email = etMail.getText().toString();
+            name = etName.getText().toString();
+            date = etDate.getText().toString();
+            location = etLocation.getText().toString();
+            profile.update(email, name, date, location);
+            if (id != Constants.EMPTY_STR) {
+                updateInDB(id, email, name, date, location);
+                Intent intent = new Intent(getApplicationContext(), DetailsActivity_1.class);
+                startActivity(intent);
+                finish();
+            }else {
+                saveInDB(email, name, date, location);
+             }
 
-          if(id != Constants.EMPTY_STR) {
-              updateInDB(id, email, name, date, location);
-              Intent intent = new Intent(getApplicationContext(), DetailsActivity_1.class);
-              startActivity(intent);
-              finish();
-          }else{
-              saveInDB(email, name, date, location);
-          }
-
-        }else{
-            Toast.makeText(getApplicationContext(), Constants.FILL_FIELDS,Toast.LENGTH_LONG).show();
         }
     }
+
     void saveID(String id) {
         SharedPreferences sPref;
         sPref = getPreferences(MODE_PRIVATE);
